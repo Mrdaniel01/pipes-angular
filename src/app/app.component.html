@@ -1,0 +1,180 @@
+<h1>Pipes in Angular</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Variable</th>
+                    <th>Pipe</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>uppercase</td>
+                    <td>{{name | uppercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{rareName}}</td>
+                    <td>capitalizado</td>
+                    <td>{{rareName | capitalizado:true}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>lowercase</td>
+                    <td>{{name | lowercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>slice: 3</td>
+                    <td>{{name | slice: 3}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>slice:0:3</td>
+                    <td>{{name | slice: 0:3}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{array}}</td>
+                    <td>slice:1:5</td>
+                    <td>{{array | slice: 1:5}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>number:'3.0-0'</td>
+                    <td>{{PI | number:'3.0-0'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>number:'.0-2'</td>
+                    <td>{{PI | number:'.0-2'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{percentage}}</td>
+                    <td>percent</td>
+                    <td>{{percentage | percent}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{percentage}}</td>
+                    <td>percent:'.2-2'</td>
+                    <td>{{percentage | percent:'.2-2'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salary}}</td>
+                    <td>curency</td>
+                    <td>{{salary | currency }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salary}}</td>
+                    <td>currency:'COP'</td>
+                    <td>{{salary | currency:'COP' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salary}}</td>
+                    <td>currency:'CAD $':'symbol':'.0-0'</td>
+                    <td>{{salary | currency:'CAD $':'symbol':'.0-0' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{varPromise}}</td>
+                    <td> async </td>
+                    <td>{{varPromise | async }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date </td>
+                    <td>{{dateToday | date}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date:'medium' </td>
+                    <td>{{dateToday | date:'medium' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date:'short' </td>
+                    <td>{{dateToday | date:'short' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date:'MMMM-dd' </td>
+                    <td>{{dateToday | date:'MMMM-dd' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date:'MMMM-dd':'':'en' </td>
+                    <td>{{dateToday | date:'MMMM-dd':'':'en' }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{dateToday}}</td>
+                    <td> date:'MMMM-dd':'':'{{idiom}}'
+                        <hr>
+                        <button (click)="idiom='es'" class="btn btn-outline-info">Spanish</button>
+                        <button (click)="idiom='en'" class="btn btn-outline-info">English</button>
+                        <button (click)="idiom='fr'" class="btn btn-outline-info">French</button>
+
+                    </td>
+                    <td>{{dateToday | date:'MMMM-dd':'':idiom }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td> contraseña: {{state}}
+                        <br>
+                        <button (click)='state = !state' class="btn btn-dark">Show/Hide</button>
+                    </td>
+                    <td>{{name | password: state }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h4>Slice | slice:5:8</h4>
+        <ul>
+            <li *ngFor='let item of array | slice:5:8 '> {{ item }} </li>
+        </ul>
+
+        <h4>JSON Pipe | sin json</h4>
+        <div class="row mb-5">
+            <div class="col">
+                {{hero}}
+            </div>
+        </div>
+        <h4>JSON Pipe | json</h4>
+        <div class="row mb-5">
+            <div class="col">
+                <pre>
+                {{hero | json}}
+							</pre>
+            </div>
+        </div>
+
+
+
+
+        <h4>iFrame | DOMSecure</h4>
+        <iframe width="560" height="315" [src]="videUrl | domseguro" frameborder="0" a llow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
